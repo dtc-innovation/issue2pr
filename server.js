@@ -1,10 +1,12 @@
-'use strict';
-
-const fastify = require('fastify')()
+import _fastify from 'fastify'
+import turnIssueIntoPr from './turn-issue-into-pr'
 
 const PORT = process.env.PORT || 5000
 
-fastify.get('/webhook/issue-to-pr', (request, reply) => {
+const fastify = _fastify();
+
+fastify.post('/webhook/issue-to-pr', (request, reply) => {
+    console.log('request', request);
     reply.send({ hello: 'world' })
 })
 

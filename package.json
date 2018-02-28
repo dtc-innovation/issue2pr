@@ -6,19 +6,27 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "@std/esm": {
+    "esm": "js",
+    "cjs": {
+      "namedExports": true
+    }
+  },
+  "dependencies": {
+    "@std/esm": "^0.18.0",
+    "fastify": "^1.0.0-rc.2",
+    "gh-got": "^7.0.0"
+  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DavidBruant/turn-issues-into-prs.git"
   },
+  "homepage": "https://github.com/DavidBruant/turn-issues-into-prs#readme",
   "keywords": [],
   "author": "David Bruant <bruant.d@gmail.com> (https://twitter.com/DavidBruant)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DavidBruant/turn-issues-into-prs/issues"
-  },
-  "homepage": "https://github.com/DavidBruant/turn-issues-into-prs#readme",
-  "devDependencies": {},
-  "dependencies": {
-    "fastify": "^1.0.0-rc.2"
   }
 }
