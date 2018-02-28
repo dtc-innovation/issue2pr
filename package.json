@@ -2,7 +2,7 @@
   "name": "turn-issues-into-prs",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,7 +17,8 @@
     "url": "https://github.com/DavidBruant/turn-issues-into-prs/issues"
   },
   "homepage": "https://github.com/DavidBruant/turn-issues-into-prs#readme",
-  "devDependencies": {
-    "@google/clasp": "^1.1.1"
+  "devDependencies": {},
+  "dependencies": {
+    "fastify": "^1.0.0-rc.2"
   }
 }

@@ -1,6 +1,5 @@
 'use strict';
 
-throw 'missing token'
 
 function turnIssueIntoPR(owner, repo, issueId, branch){
 

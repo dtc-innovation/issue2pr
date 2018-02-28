@@ -1,0 +1,7 @@
+{
+  "name": "Turn issues into PRs",
+  "description": "Turn issues into PRs",
+  "repository": "https://github.com/DavidBruant/turn-issues-into-prs",
+  "keywords": ["github", "issue", "pull request", "node", "webhook"],
+  "image": "heroku/nodejs"
+}
