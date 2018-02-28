@@ -25,7 +25,7 @@
   "homepage": "https://github.com/DavidBruant/turn-issues-into-prs#readme",
   "keywords": [],
   "author": "David Bruant <bruant.d@gmail.com> (https://twitter.com/DavidBruant)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/DavidBruant/turn-issues-into-prs/issues"
   }
