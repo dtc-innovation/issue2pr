@@ -17,8 +17,6 @@ function getIssueIdFromBranchName(branch){
 fastify.post('/webhook/issue-to-pr', (request, reply) => {
     // reply right away
     reply.send('')
-    
-    console.log('request', request);
 
     const {headers, body} = request;
     const eventType = headers['x-github-event'];
@@ -29,7 +27,6 @@ fastify.post('/webhook/issue-to-pr', (request, reply) => {
     // we're creating a branch
 
     const branch = body.ref
-    console.log('ref', branch);
 
     const issueId = getIssueIdFromBranchName(branch);
     if(!issueId)
@@ -38,8 +35,6 @@ fastify.post('/webhook/issue-to-pr', (request, reply) => {
 
     const owner = body.repository.owner.login;
     const repo = body.repository.name;
-
-    console.log(owner, repo, issueId);
 
     turnIssueIntoPr(owner, repo, issueId, branch)
     .catch(err => console.error(err))
