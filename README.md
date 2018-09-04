@@ -1,13 +1,23 @@
-# Turn issues into PRs
+# issue-to-pr
 
-It is not possible to transform an issue into a PR from Github UI. However, it's possible from the API.
+> A GitHub App built with [Probot](https://probot.github.io) that Probot extension to convert an issue into a Pull Request.
 
-Deploy this application, register the webhook and then, pushing branches following the `issue-XXX` pattern will lead to the `XXX` issue being turned into a PR with the code of the branch.
+## Setup
 
-## How
+```sh
+# Install dependencies
+npm install
 
-https://turn-issue-into-pr.herokuapp.com/webhook/issue-to-pr can be registered as a webhook. This webhook listens to the `create` event. Currently, it only works on repos where i (@DavidBruant) have write access, but it's easy to deploy it yourself.
+# Run the bot
+npm start
+```
 
-## Licence
+## Contributing
 
-MIT
+If you have suggestions for how issue-to-pr could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
+
+For more, check out the [Contributing Guide](CONTRIBUTING.md).
+
+## License
+
+[MIT](LICENSE) © 2018 dtc innovation

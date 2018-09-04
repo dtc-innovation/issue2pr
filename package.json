@@ -1,32 +1,49 @@
 {
-  "name": "turn-issues-into-prs",
+  "name": "issue-to-pr",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Probot extension to convert an issue into a Pull Request.",
+  "author": "dtc innovation <oncletom@users.noreply.github.com> (https://dtc-innovation.github.io/issue2pr)",
+  "license": "ISC",
+  "repository": "https://github.com/dtc-innovation/issue2pr.git",
+  "homepage": "https://github.com/dtc-innovation/issue2pr",
+  "bugs": "https://github.com/dtc-innovation/issue2pr/issues",
+  "keywords": [
+    "probot",
+    "github",
+    "probot-app"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "@std/esm": {
-    "esm": "js",
-    "cjs": {
-      "namedExports": true
-    }
+    "dev": "nodemon",
+    "start": "probot run ./index.js",
+    "lint": "standard --fix",
+    "test": "jest && standard",
+    "test:watch": "jest --watch --notify --notifyMode=change --coverage"
   },
   "dependencies": {
-    "@std/esm": "^0.18.0",
-    "fastify": "^1.0.0-rc.2",
-    "gh-got": "^7.0.0"
+    "probot": "^7.0.0"
   },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DavidBruant/turn-issues-into-prs.git"
+  "devDependencies": {
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.2",
+    "smee-client": "^1.0.2",
+    "standard": "^10.0.3"
   },
-  "homepage": "https://github.com/DavidBruant/turn-issues-into-prs#readme",
-  "keywords": [],
-  "author": "David Bruant <bruant.d@gmail.com> (https://twitter.com/DavidBruant)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/DavidBruant/turn-issues-into-prs/issues"
+  "engines": {
+    "node": ">= 8.3.0"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "nodemonConfig": {
+    "exec": "npm start",
+    "watch": [
+      ".env",
+      "."
+    ]
   }
 }
