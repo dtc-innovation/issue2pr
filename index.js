@@ -2,18 +2,39 @@
  * This is the entry point for your Probot App.
  * @param {import('probot').Application} app - Probot's Application class.
  */
+const {getIssueIdFromBranchName} = require('./branch.js')
+
 module.exports = app => {
-  // Your code here
-  app.log('Yay, the app was loaded!')
+  app.on('create', async context => {
+    const {ref_type: refType, ref, master_branch: base} = context.payload
 
-  app.on('issues.opened', async context => {
-    const issueComment = context.issue({ body: 'Thanks for opening this issue!' })
-    return context.github.issues.createComment(issueComment)
+    if (refType !== 'branch') {
+      return app.log(`[SKIP] not a branch.`)
+    }
+
+    const number = getIssueIdFromBranchName(ref)
+
+    if (!number) {
+      return app.log(`[SKIP] issue_id not found (${ref})`)
+    }
+
+    const params = context.issue({ number })
+    const {owner, repo} = params
+    app.log.debug('%s/%s/issues/%d - %o', owner, repo, number, params)
+    const issue = await context.github.issues.get(params)
+
+    if (!issue) {
+      return app.log(`[SKIP] issue not found (${owner}/${repo}/${number})`)
+    }
+
+    return context.github.request({
+      method: 'POST',
+      url: '/repos/:owner/:repo/pulls',
+      head: ref,
+      issue: number,
+      base,
+      owner,
+      repo
+    })
   })
-
-  // For more information on building apps:
-  // https://probot.github.io/docs/
-
-  // To get your app running against GitHub, see:
-  // https://probot.github.io/docs/development/
 }
