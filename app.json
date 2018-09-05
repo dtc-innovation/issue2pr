@@ -1,7 +1,7 @@
 {
   "name": "Turn issues into PRs",
   "description": "Turn issues into PRs",
-  "repository": "https://github.com/DavidBruant/turn-issues-into-prs",
+  "repository": "https://github.com/dtc-innovation/issue2pr",
   "keywords": ["github", "issue", "pull request", "node", "webhook"],
   "image": "heroku/nodejs"
 }

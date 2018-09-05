@@ -3,3 +3,5 @@ language: node_js
 node_js: node
 notifications:
   disabled: true
+
+install: npm install
