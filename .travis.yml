@@ -5,3 +5,9 @@ notifications:
   disabled: true
 
 install: npm install
+
+deploy:
+  provider: script
+  script: npm run deploy
+  on:
+    tags: true

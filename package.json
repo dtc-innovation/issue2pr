@@ -15,7 +15,10 @@
   "scripts": {
     "dev": "nodemon",
     "start": "probot run ./index.js",
-    "deploy": "now --regions bru --team dtc-innovation --public -e NODE_ENV=production -e PRIVATE_KEY_BASE64=@issue2pr-private-key -e APP_ID=@issue2pr-app-id -e WEBHOOK_SECRET=@issue2pr-webhook-secret",
+    "deploy": "npm run now-deploy && npm run now-alias && npm run now-rm",
+    "now-deploy": "now --regions bru --token $NOW_TOKEN --team dtc-innovation --public -e NODE_ENV=production -e PRIVATE_KEY_BASE64=@issue2pr-private-key -e APP_ID=@issue2pr-app-id -e WEBHOOK_SECRET=@issue2pr-webhook-secret",
+    "now-alias": "now --team dtc-innovation --token $NOW_TOKEN alias issue2pr.apps.dtc-innovation.org",
+    "now-rm": "now --token $NOW_TOKEN --team dtc-innovation rm issue-to-pr --safe --yes",
     "now-start": "PRIVATE_KEY=$(echo $PRIVATE_KEY_BASE64 | base64 -d) npm start",
     "lint": "standard --fix",
     "test": "jest && standard",
