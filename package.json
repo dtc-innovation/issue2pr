@@ -1,6 +1,6 @@
 {
   "name": "issue-to-pr",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Probot extension to convert an issue into a Pull Request.",
   "author": "dtc innovation (https://dtc-innovation.github.io/issue2pr)",
   "license": "MIT",
