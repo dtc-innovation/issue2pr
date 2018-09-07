@@ -4,6 +4,9 @@ node_js: node
 notifications:
   disabled: true
 
+before_install:
+- npm i -g now@latest
+
 install: npm install
 
 deploy:
